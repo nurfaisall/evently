@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from '@/public/assets/logo.svg'
+import { SignedOut } from '@clerk/nextjs'
+import { Button } from '../ui/button'
 
 function Header() {
   return (
@@ -12,7 +14,12 @@ function Header() {
         </Link>
 
       <div className='flex w-32 justify-end gap-3'>
-        
+        <SignedOut>
+          <Button asChild className='rounded-full' size="lg">
+            <Link href="/sign-in"></Link>
+          </Button>
+        </SignedOut>
+
       </div>
 
       </div>
